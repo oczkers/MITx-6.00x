@@ -23,24 +23,25 @@ def compChooseWord(hand, wordList, n):
 
     returns: string or None
     """
-    # BEGIN PSEUDOCODE <-- Remove this comment when you code this function; do your coding within the pseudocode (leaving those comments in-place!)
     # Create a new variable to store the maximum score seen so far (initially 0)
-
+    score_max = 0
     # Create a new variable to store the best word seen so far (initially None)
-
+    word_max = None
     # For each word in the wordList
-
+    for word in wordList:
         # If you can construct the word from your hand
         # (hint: you can use isValidWord, or - since you don't really need to test if the word is in the wordList - you can make a similar function that omits that test)
-
+        if isValidWord(word, hand, wordList):   # TODO: optimization
             # Find out how much making that word is worth
-
+            score = getWordScore(word, n)
             # If the score for that word is higher than your best score
-
+            if score > score_max:
                 # Update your best score, and best word accordingly
-
+                score_max = score
+                word_max = word
 
     # return the best word you found.
+    return word_max
 
 
 #
@@ -65,7 +66,18 @@ def compPlayHand(hand, wordList, n):
     wordList: list (string)
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    score = 0
+    while calculateHandlen(hand) > 0:
+        print '\nCurrent Hand:',
+        displayHand(hand)
+        word = compChooseWord(hand, wordList, n)
+        if word is None:
+            break
+        hand = updateHand(hand, word)
+        score_word = getWordScore(word, n)
+        score += score_word
+        print '"%s" earned %s points. Total: %s points' % (word, score_word, score)
+    print 'Total score: %s points.' % (score)
 
 
 #
@@ -96,8 +108,41 @@ def playGame(wordList):
 
     wordList: list (string)
     """
-    # TO DO... <-- Remove this comment when you code this function
-    print "playGame not yet implemented."  # <-- Remove this when you code this function
+    n = HAND_SIZE
+    hand = {}
+
+    while True:
+        cmd = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game:')
+        # new hand
+        if cmd == 'n':
+            hand = dealHand(n)
+            while cmd not in ('u', 'c'):    # TODO: optimization
+                cmd = raw_input('Enter u to have yourself play, c to have the computer play:')
+                if cmd not in ('u', 'c'):
+                    print 'Invalid command.'
+            if cmd == 'u':
+                playHand(hand, wordList, n)
+            elif cmd == 'c':
+                compPlayHand(hand, wordList, n)
+        # replay
+        elif cmd == 'r':
+            if not hand:
+                print 'You have not played a hand yet. Please play a new hand first!'
+            else:
+                while cmd not in ('u', 'c'):    # TODO: optimization
+                    cmd = raw_input('Enter u to have yourself play, c to have the computer play:')
+                    if cmd not in ('u', 'c'):
+                        print 'Invalid command.'
+                if cmd == 'u':
+                    playHand(hand, wordList, n)
+                elif cmd == 'c':
+                    compPlayHand(hand, wordList, n)
+        # exit
+        elif cmd == 'e':
+            break
+        # invalid cmd
+        else:
+            print 'Invalid command.'
 
 
 #
