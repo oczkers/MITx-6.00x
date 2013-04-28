@@ -83,7 +83,7 @@ def simulationTwoDrugsDelayedTreatment(numTrials):
     first_drug = 150
     second_drug = 300
     steps = first_drug + second_drug
-    total_vs = [0 for i in steps]
+    total_vs = [0 for i in range(steps)]
     resis_vs = list(total_vs)
     results = list(total_vs)
 
