@@ -94,22 +94,22 @@ class WeightedDigraph(Digraph):
         self.edges[src].append([dest, edge])
 
     def childrenOf(self, node):
-        return self.edges[node]
-        #return [i for i, _ in self.edges[node]]
+        #return self.edges[node]
+        return [i for i, _ in self.edges[node]]
 
     def __str__(self):
         res = ''
         for k in self.edges:
             for d, edge in self.edges[k]:
-                res = '{0}{1}->{2} ({3}, {4})\n'.format(res, k, d, edge.getTotalDistance(), edge.getOutdoorDistance())
+                res = '{0}{1}->{2} ({3}, {4})\n'.format(res, k, d, float(edge.getTotalDistance()), float(edge.getOutdoorDistance()))
         return res[:-1]
 
 
 class WeightedEdge(Edge):
     def __init__(self, src, dest, total_distance, outdoor_distance):
         Edge.__init__(self, src, dest)
-        self.total_distance = float(total_distance)
-        self.outdoor_distance = float(outdoor_distance)
+        self.total_distance = int(total_distance)
+        self.outdoor_distance = int(outdoor_distance)
 
     def getTotalDistance(self):
         return self.total_distance
