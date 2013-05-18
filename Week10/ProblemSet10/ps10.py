@@ -42,8 +42,8 @@ def load_map(mapFilename):
     with open(mapFilename, 'r') as f:
         for i in f.readlines():
             src, dest, total_distance, outdoor_distance = i.split()
-            #src = src
-            #dest = dest
+            src = Node(src)
+            dest = Node(dest)
             #total_distance = int(total_distance)
             #outdoor_distance = int(outdoor_distance)
 
@@ -115,6 +115,8 @@ def bruteForceSearch(digraph, start, end, maxTotalDist, maxDistOutdoors):
         If there exists no path that satisfies maxTotalDist and
         maxDistOutdoors constraints, then raises a ValueError.
     """
+    start = Node(start)
+    end = Node(end)
     # we can replace dict with tuple to fix performance
     path_best = {'path': None,
                  'total_dist': maxTotalDist,
@@ -124,7 +126,7 @@ def bruteForceSearch(digraph, start, end, maxTotalDist, maxDistOutdoors):
     for path in paths:
         total_dist, outdoor_dist = getDistances(digraph, path)
         if total_dist <= maxTotalDist and outdoor_dist <= maxDistOutdoors:
-            if total_dist < path_best['total_dist']:
+            if total_dist <= path_best['total_dist']:
                 path_best.update(path=path,
                                  total_dist=total_dist,
                                  outdoor_dist=outdoor_dist)
@@ -132,7 +134,7 @@ def bruteForceSearch(digraph, start, end, maxTotalDist, maxDistOutdoors):
     if path_best['path'] is None:
         raise ValueError
 
-    return path_best['path']
+    return [node.getName() for node in path_best['path']]  # convert nodes to str
 
 
 #
@@ -181,12 +183,15 @@ def directedDFS(digraph, start, end, maxTotalDist, maxDistOutdoors):
         If there exists no path that satisfies maxTotalDist and
         maxDistOutdoors constraints, then raises a ValueError.
     """
+    start = Node(start)
+    end = Node(end)
+
     path_best = DFS(digraph, start, end, maxTotalDist, maxDistOutdoors)
 
     if path_best is None:
         raise ValueError
 
-    return path_best
+    return [node.getName() for node in path_best]  # convert nodes to str
 
 # Uncomment below when ready to test
 #### NOTE! These tests may take a few minutes to run!! ####
