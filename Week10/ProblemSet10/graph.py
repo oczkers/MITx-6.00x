@@ -24,6 +24,11 @@ class Node(object):
     def __ne__(self, other):
         return not self.__eq__(other)
 
+    def __hash__(self):
+        # Override the default hash method
+        # Think: Why would we want to do this?
+        return self.name.__hash__()
+
 
 class Edge(object):
     def __init__(self, src, dest):
@@ -94,7 +99,6 @@ class WeightedDigraph(Digraph):
         self.edges[src].append([dest, edge])
 
     def childrenOf(self, node):
-        #return self.edges[node]
         return [i for i, _ in self.edges[node]]
 
     def __str__(self):
