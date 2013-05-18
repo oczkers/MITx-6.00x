@@ -82,7 +82,7 @@ def listPaths(digraph, start, end, path=[]):
         return [path]
 
     paths = []
-    for node, edge in digraph.childrenOf(start):
+    for node in digraph.childrenOf(start):
         if node not in path:
             new_paths = listPaths(digraph, node, end, path)
             for new_path in new_paths:
@@ -144,7 +144,7 @@ def DFS(digraph, start, end, maxTotalDist, maxDistOutdoors, path=[], path_best=N
     if start == end:
         return path
 
-    for node, edge in digraph.childrenOf(start):
+    for node in digraph.childrenOf(start):
         if node not in path:
                 new_path = DFS(digraph, node, end, maxTotalDist, maxDistOutdoors, path, path_best)
                 if new_path is not None:
