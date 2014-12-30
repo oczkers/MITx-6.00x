@@ -1,5 +1,5 @@
 import random
-#import pylab
+# import pylab
 
 # Global Variables
 MAXRABBITPOP = 1000

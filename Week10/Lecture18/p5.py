@@ -5,7 +5,7 @@ def yieldAllCombos(items):
     Yields a tuple, (bag1, bag2), where each bag is represented as a list of which item(s) are in each bag.
     """
     n = len(items)
-    for i in range(3**n):
+    for i in range(3 ** n):
         bag1 = []
         bag2 = []
         for j in range(n):

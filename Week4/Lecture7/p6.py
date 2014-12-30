@@ -10,4 +10,3 @@ def integerDivision(x, a):
         count += 1
         x = x - a
     return count
-

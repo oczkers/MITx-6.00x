@@ -31,4 +31,4 @@ def noReplacementSimulation(numTrials):
     for i in range(numTrials):
         if choose():
             fraction += 1
-    return float(fraction)/numTrials
+    return float(fraction) / numTrials

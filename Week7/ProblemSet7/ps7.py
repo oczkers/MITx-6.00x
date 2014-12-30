@@ -129,7 +129,7 @@ class RectangularRoom(object):
 
         returns: a Position object.
         """
-        return Position(random.random()*self.width, random.random()*self.height)
+        return Position(random.random() * self.width, random.random() * self.height)
 
     def isPositionInRoom(self, pos):
         """
@@ -239,7 +239,7 @@ class StandardRobot(Robot):
             self.setRobotPosition(newPosition)
 
 # Uncomment this line to see your implementation of StandardRobot in action!
-#testRobotMovement(StandardRobot, RectangularRoom)
+# testRobotMovement(StandardRobot, RectangularRoom)
 
 
 # === Problem 3
@@ -335,7 +335,7 @@ def showPlot2(title, x_label, y_label):
     times1 = []
     times2 = []
     for width in [10, 20, 25, 50]:
-        height = 300/width
+        height = 300 / width
         print "Plotting cleaning time for a room of width:", width, "by height:", height
         aspect_ratios.append(float(width) / height)
         times1.append(runSimulation(2, 1.0, width, height, 0.8, 200, StandardRobot))

@@ -78,7 +78,7 @@ def randomScrambled(wordList, n):
     implementation of applyShifts!
     """
     s = randomString(wordList, n) + " "
-    shifts = [(i, random.randint(0, 25)) for i in range(len(s)) if s[i-1] == ' ']
+    shifts = [(i, random.randint(0, 25)) for i in range(len(s)) if s[i - 1] == ' ']
     return applyShifts(s, shifts)[:-1]
 
 
@@ -107,13 +107,13 @@ def buildCoder(shift):
     """
     result = {}
     for i in string.ascii_lowercase:
-        char = ord(i)+shift
+        char = ord(i) + shift
         if char > 122:
             char = 96 + (char - 122)
         result[i] = chr(char)
 
     for i in string.ascii_uppercase:
-        char = ord(i)+shift
+        char = ord(i) + shift
         if char > 90:
             char = 64 + (char - 90)
         result[i] = chr(char)

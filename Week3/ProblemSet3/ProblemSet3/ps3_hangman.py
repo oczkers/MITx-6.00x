@@ -109,7 +109,7 @@ def hangman(secretWord):
 
     Follows the other limitations detailed in the problem write-up.
     '''
-    #secretWord = chooseWord(loadWords())
+    # secretWord = chooseWord(loadWords())
     guesses_left = 8
     lettersGuessed = []
     print 'Welcome to the game, Hangman!'
@@ -136,10 +136,6 @@ def hangman(secretWord):
                 lettersGuessed.append(guess)
                 guesses_left -= 1
                 print "Oops! That letter is not in my word: %s" % (getGuessedWord(secretWord, lettersGuessed))
-
-
-
-
 
 
 # When you've completed your hangman function, uncomment these two lines

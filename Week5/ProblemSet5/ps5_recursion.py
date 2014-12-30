@@ -19,7 +19,7 @@ def reverseString(aStr):
     if len(aStr) < 2:
         return aStr
     else:
-        return aStr[-1]+reverseString(aStr[1:-1])+aStr[0]
+        return aStr[-1] + reverseString(aStr[1:-1]) + aStr[0]
 
 
 #
@@ -66,7 +66,7 @@ def insertNewlines(text, lineLength):
     def insertNewlinesRec(text, lineLength):
         if len(text) <= lineLength:
             return text
-        elif text[lineLength-1] == ' ':
+        elif text[lineLength - 1] == ' ':
             return '%s\n%s' % (text[:lineLength], insertNewlinesRec(text[lineLength:], lineLength))
         else:
             return text[0] + insertNewlinesRec(text[1:], lineLength)

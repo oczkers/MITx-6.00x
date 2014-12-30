@@ -44,8 +44,8 @@ def load_map(mapFilename):
             src, dest, total_distance, outdoor_distance = i.split()
             src = Node(src)
             dest = Node(dest)
-            #total_distance = int(total_distance)
-            #outdoor_distance = int(outdoor_distance)
+            # total_distance = int(total_distance)
+            # outdoor_distance = int(outdoor_distance)
 
             for node in (src, dest):
                 if not graph.hasNode(node):
@@ -69,7 +69,7 @@ def getDistances(digraph, path):
     outdoor_dist = 0
     for i in range(len(path) - 1):
         for node, edge in digraph.edges[path[i]]:
-            if node == path[i+1]:
+            if node == path[i + 1]:
                 total_dist += edge.getTotalDistance()
                 outdoor_dist += edge.getOutdoorDistance()
     return (total_dist, outdoor_dist)
@@ -194,9 +194,9 @@ def directedDFS(digraph, start, end, maxTotalDist, maxDistOutdoors):
     return [node.getName() for node in path_best]  # convert nodes to str
 
 # Uncomment below when ready to test
-#### NOTE! These tests may take a few minutes to run!! ####
+# ### NOTE! These tests may take a few minutes to run!! ####
 if __name__ == '__main__':
-#    Test cases
+    # Test cases
     mitMap = load_map("mit_map.txt")
     print isinstance(mitMap, Digraph)
     print isinstance(mitMap, WeightedDigraph)

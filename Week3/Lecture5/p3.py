@@ -13,4 +13,3 @@ def recurPowerNew(base, exp):
         return recurPowerNew(base * base, (exp / 2))
     else:
         return base * recurPowerNew(base, (exp - 1))
-

@@ -59,7 +59,7 @@ class ProblemSet6(unittest.TestCase):
         pink      = NewsStory('', "Soft's the new pink!", '', '', '')
         football  = NewsStory('', '"Soft!" he exclaimed as he threw the football', '', '', '')
         microsoft = NewsStory('', 'Microsoft announced today that pillows are bad', '', '', '')
-        nothing   = NewsStory('', 'Reuters reports something really boring', '', '' ,'')
+        nothing   = NewsStory('', 'Reuters reports something really boring', '', '', '')
         caps      = NewsStory('', 'soft things are soft', '', '', '')
 
         s1 = TitleTrigger('SOFT')

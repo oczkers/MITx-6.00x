@@ -1,8 +1,8 @@
 def oddTuples(aTup):
     '''
     aTup: a tuple
-    
-    returns: tuple, every other element of aTup. 
+
+    returns: tuple, every other element of aTup.
     '''
     tup_len = len(aTup)
     if tup_len == 0:
@@ -13,4 +13,3 @@ def oddTuples(aTup):
         tup_new.append(aTup[n])
         n += 2
     return tuple(tup_new)
-

@@ -8,14 +8,14 @@ from project_util import translate_html
 from Tkinter import *
 
 
-#-----------------------------------------------------------------------
+# -----------------------------------------------------------------------
 #
 # Problem Set 6
 
-#======================
+# ======================
 # Code for retrieving and parsing RSS feeds
 # Do not change this code
-#======================
+# ======================
 
 def process(url):
     """
@@ -37,12 +37,12 @@ def process(url):
         newsStory = NewsStory(guid, title, subject, summary, link)
         ret.append(newsStory)
     return ret
-#======================
+# ======================
 
-#======================
+# ======================
 # Part 1
 # Data structure design
-#======================
+# ======================
 
 # Problem 1
 
@@ -70,10 +70,10 @@ class NewsStory(object):
     def getLink(self):
         return self.link
 
-#======================
+# ======================
 # Part 2
 # Triggers
-#======================
+# ======================
 
 
 class Trigger(object):
@@ -166,10 +166,10 @@ class PhraseTrigger(Trigger):
         return False
 
 
-#======================
+# ======================
 # Part 3
 # Filtering
-#======================
+# ======================
 
 def filterStories(stories, triggerlist):
     """
@@ -183,10 +183,10 @@ def filterStories(stories, triggerlist):
             stories_filtered.append(story)
     return stories_filtered
 
-#======================
+# ======================
 # Part 4
 # User-Specified Triggers
-#======================
+# ======================
 
 
 def makeTrigger(triggerMap, triggerType, params, name):
@@ -304,7 +304,7 @@ def main_thread(master):
 
         def get_cont(newstory):
             if newstory.getGuid() not in guidShown:
-                cont.insert(END, newstory.getTitle()+"\n", "title")
+                cont.insert(END, newstory.getTitle() + "\n", "title")
                 cont.insert(END, "\n---------------------------------------------------------------\n", "title")
                 cont.insert(END, newstory.getSummary())
                 cont.insert(END, "\n*********************************************************************\n", "title")

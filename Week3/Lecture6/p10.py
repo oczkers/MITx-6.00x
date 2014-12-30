@@ -6,8 +6,7 @@ def howMany(aDict):
     '''
     result = 0
     for value in aDict.values():
-        # Since all the values of aDict are lists, aDict.values() will 
+        # Since all the values of aDict are lists, aDict.values() will
         #  be a list of lists
         result += len(value)
     return result
-

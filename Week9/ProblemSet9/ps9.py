@@ -48,11 +48,11 @@ def simulationDelayedTreatment(numTrials):
 
     toPlot = []
     for i in range(0, len(results), numTrials):
-        toPlot.append(results[i:i+numTrials])
-    #print toPlot
+        toPlot.append(results[i:i + numTrials])
+    # print toPlot
 
     for i, _ in enumerate(delays):
-        pylab.subplot(2, 2, i+1)
+        pylab.subplot(2, 2, i + 1)
         pylab.hist(toPlot[i])
     pylab.show()
 

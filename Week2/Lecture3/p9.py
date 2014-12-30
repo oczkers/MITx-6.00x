@@ -8,7 +8,7 @@ guessed = False
 # Loop until we guess it correctly
 while not guessed:
     # Bisection search: guess the midpoint between our current high and low guesses
-    guess = (hi + lo)/2
+    guess = (hi + lo) / 2
     print("Is your secret number " + str(guess) + "?")
     user_inp = raw_input("Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. ")
 

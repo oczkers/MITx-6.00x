@@ -3,7 +3,7 @@
 import numpy
 import random
 import pylab
-#from ps8b_precompiled_27 import *
+# from ps8b_precompiled_27 import *
 '''
 Begin helper code
 '''
@@ -336,8 +336,8 @@ class TreatedPatient(Patient):
         maxPop: The  maximum virus population for this patient (an integer)
         """
         Patient.__init__(self, viruses, maxPop)
-        #self.viruses = viruses
-        #self.maxPop = maxPop
+        # self.viruses = viruses
+        # self.maxPop = maxPop
         self.prescriptions = []
 
     def addPrescription(self, newDrug):
@@ -440,8 +440,8 @@ def simulationWithDrug(numViruses, maxPop, maxBirthProb, clearProb, resistances,
     """
     drug = 'guttagonol'
     steps = 300
-    pop_total = [0]*steps
-    pop_res = [0]*steps
+    pop_total = [0] * steps
+    pop_res = [0] * steps
 
     for i in range(numTrials):
         viruses = [ResistantVirus(maxBirthProb, clearProb, resistances, mutProb) for i in range(numViruses)]
